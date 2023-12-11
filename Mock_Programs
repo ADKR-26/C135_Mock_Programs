@@ -1,0 +1,93 @@
+ALL QUESTIONS:
+
+// 1. Given an array of integers, write a Java program to find and print all the duplicate elements.
+// 2. Write a Java function to check if two strings are anagrams of each other.
+// 3. Write a Java program to print a right-angled triangle of stars. The number of rows should be taken as input.
+
+================ PROGRAM =======================
+
+import java.util.*;
+
+public class MockQuestions {
+
+	public static void main(String[] args) {
+
+		duplicateNumbers();
+		anagramCheck();
+		rightAngledTriangle();
+	}
+
+  // ========= 1. Given an array of integers, write a Java program to find and print all the duplicate elements. ==========
+
+	public static void duplicateNumbers() {
+		int arr[] = { 2, 4, 6, 3, 4, 2, 3, 4 };
+		ArrayList<Integer> list = new ArrayList<Integer>();
+
+		int length = arr.length;
+
+		for (int i = 0; i < length - 1; i++) {
+			for (int j = i + 1; j < length - 1; j++) {
+				if (arr[i] == arr[j]) {
+					list.add(arr[i]);
+				}
+			}
+		}
+
+		System.out.println("Duplicate Numbers are -> " + list);
+	}
+
+// =========== OUTPUT: =====================
+
+    Duplicate Numbers are -> [2, 4, 3]
+
+// ======== 2. Write a Java function to check if two strings are anagrams of each other. ==========
+
+	public static void anagramCheck() {
+		String s1 = "abcd";
+		String s2 = "bcad";
+
+		if (s1.length() == s2.length()) {
+			char s1Arr[] = s1.toCharArray();
+			char s2Arr[] = s2.toCharArray();
+			
+			Arrays.sort(s1Arr);
+			Arrays.sort(s2Arr);
+			
+			if(Arrays.equals(s1Arr, s2Arr)) {
+				System.out.println("The given two strings are anagrams of each other");
+			}
+			else {
+				System.out.println("The given two strings are not anagrams of each other");
+			}
+		}
+		else {
+			System.out.println("Please enter strings of same length");
+		}
+	}
+
+// ====================== OUTPUT =========================
+
+    The given two strings are anagrams of each other
+
+
+ // ========= 3. Write a Java program to print a right-angled triangle of stars. The number of rows should be taken as input. ===========
+
+	public static void rightAngledTriangle() {
+		
+		for(int i=1;i<=5;i++) {
+			for(int k=1;k<=i;k++) {
+				System.out.print(" * ");
+			}
+			System.out.println();
+		}
+	}
+
+// ================ OUTPUT ================
+
+ * 
+ *  * 
+ *  *  * 
+ *  *  *  * 
+ *  *  *  *  * 
+
+}
